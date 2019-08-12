@@ -21,7 +21,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        List<String> contents = getContents("C:\\tmp\\estransl\\jcr_root\\content\\wcgcom\\corp-masters\\es");
+        List<String> contents = getContents("/Users/carlos.araujo/Downloads/translations/nl/inheritance/jcr_root/content/wcgcom/corp-masters/nl");
         for(String x: contents){
             changeXML(x);
             System.out.println( x );
@@ -45,7 +45,6 @@ public class App
                 current = children.item(i);
                 if (current.getNodeType() == Node.ELEMENT_NODE && current.getNodeName().equals("jcr:content")) {
                     Element element = (Element) current;
-                    setPropertyInheritanceCancelled(element);
                     setMixingTypes(element);
                     modifyMixinTypes(element);
                 }
